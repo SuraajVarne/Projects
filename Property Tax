@@ -24,7 +24,7 @@ int main()
     {
         if(!isalpha(toupper(name_account[i])) && !isspace(toupper(name_account[i])))
         {
-            cout << "Enter name of the account again: " << endl;
+            cout << "Your name can only have alphabets or spaces. Enter again: " << endl;
             getline(cin, name_account);
         }
         
@@ -37,11 +37,18 @@ int main()
     {
         if(account_number.size()!= ACCOUNT_LENGTH)
         {
-            cout << " Enter the number of account again: " << endl;
+            cout << " Your account number must have 6 alphanumeric characters. Please enter again: " << endl;
             getline(cin, account_number);
         }
+    }
     
-        
+    for(i=0; i< account_number[i]; i++)
+    {
+        if(!isalpha(toupper(account_number[i])) && !isdigit(toupper(account_number[i])))
+        {
+            cout << " Your account number must have only alphabets or numbers. Please enter again: " << endl;
+            getline(cin, account_number);
+        }
     }
     
     

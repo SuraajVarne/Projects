@@ -1,0 +1,53 @@
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    cout << "\n\t Computer Science and Engineering";
+    cout << "\n\t CSCE 1030- Computer Science 1";
+    cout << "\n\t Suraj Varne Sheela, EUID- ss2303, email address- SuraajVarneSheela@my.unt.edu";
+
+    const int ACCOUNT_LENGTH = 6;
+    string account_number;
+    string name_account;
+    int i;
+
+    enum Property {Commercial = 1, Residential = 2};
+
+    cout << "\n\t Enter the name of the account: ";
+    getline(cin, name_account);
+
+    for(i=0; i< name_account[i]; i++)
+    {
+        if(!isalpha(toupper(name_account[i])) && !isspace(toupper(name_account[i])))
+        {
+            cout << "Enter name of the account again: " << endl;
+            getline(cin, name_account);
+        }
+        
+    }
+    
+    cout << " Enter the number of the account: " << endl;
+    getline(cin, account_number);
+    
+    for(i=0; i< account_number[i]; i++)
+    {
+        if(account_number.size()!= ACCOUNT_LENGTH)
+        {
+            cout << " Enter the number of account again: " << endl;
+            getline(cin, account_number);
+        }
+    
+        
+    }
+    
+    
+    
+    
+    
+    
+    return 0;
+}

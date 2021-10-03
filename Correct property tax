@@ -1,0 +1,141 @@
+int main()
+{
+    cout<<"\tComputer Science and Engineering"<<endl;
+    cout<<"\tCSCE 1030 -Computer Science I"<<endl;
+    cout<<"\tChaitanya Chunduri cc1278 cc1278@my.unt.edu"<<endl;
+    cout<<endl;
+    const int ACCOUNT_LENGTH = 6;
+    double propValue;
+    double taxper;
+    double tax;
+    string account_number;
+    string name_account;
+    int i;
+    int property_process;
+    int propType;
+    int commercialProperties=0;
+    int residentialProperties=0;
+    double exempt =0;
+    bool prop = false;
+
+    enum Property {Commercial = 1, Residential = 2};
+   
+
+    cout << "Enter the name of the account: ";
+    getline(cin, name_account);
+
+    for(i=0; i< name_account[i]; i++)
+    {
+        if(!isalpha(toupper(name_account[i])) && !isspace(toupper(name_account[i])))
+        {
+            cout << "Your name can only have alphabets or spaces. Enter again: " << endl;
+            getline(cin, name_account);
+        }
+       
+    }
+   
+    cout << "Enter the number of the account: " << endl;
+    getline(cin, account_number);
+   
+    for(i=0; i< account_number[i]; i++)
+    {
+        if(account_number.size()!= ACCOUNT_LENGTH)
+        {
+            cout << "Your account number must have 6 alphanumeric characters. Please enter again: " << endl;
+            getline(cin, account_number);
+        }
+    }
+   
+    for(i=0; i< account_number[i]; i++)
+    {
+        if(!isalpha(toupper(account_number[i])) && !isdigit(toupper(account_number[i])))
+        {
+            cout << "Your account number must have only alphabets or numbers. Please enter again: " << endl;
+            getline(cin, account_number);
+        }
+    }
+    cout << "Enter the number of properties to process: ";
+    cin >> property_process;
+   
+    if(property_process < 0)
+    {while(prop==false){
+        cout << "Error";
+        cout << "Enter the number of properties to process: ";
+        cin >> property_process;
+        if (property_process>=0){
+            prop=true;
+        }
+    }
+   
+   
+    }
+    for(i=0;i<property_process;i++){
+        cout<< "Enter the type of property"<<endl;
+        cout<<"1 for Commercial"<<endl;
+        cout<<"2 for Residential"<<endl;
+        cin>>propType;
+    switch(propType){
+        case 1:
+        commercialProperties++;
+        cout<<"Proccessing property #"<<i+1<<endl;
+        cout<<"Enter Property Value"<<endl;
+        cin>>propValue;
+        if (propValue<1000000){
+            taxper= (0.035*propValue);
+            tax+=taxper;
+        }
+        else if(propValue>=1000000)
+        {
+            taxper=((0.035*1000000)+(0.05*(propValue-1000000)));
+            tax+=taxper;
+        }
+        cout<<"Total Tax for this property is "<<taxper<<endl;
+       
+        break;
+        case 2:
+        cout<<"Proccessing property #"<<i+1<<endl;
+        residentialProperties++;
+        cout<<"Enter Property Value"<<endl;
+        cin>>propValue;
+        if (propValue<100000){
+            taxper =0;
+            tax+=taxper;
+        }
+        else if(propValue>=100000)
+        {
+            taxper = ((0*100000)+(0.035*(propValue-100000)));
+            tax+=taxper;
+        }
+        cout<<"Total Tax for this property is "<<taxper<<endl;
+        break;
+        default:
+        cout<<"Invalid type of property";
+        i--;
+        break;
+       
+    }
+    }
+    if(commercialProperties==0 && residentialProperties==1){
+        srand(time(NULL));
+        exempt =rand()%1001+1000;
+        if(tax<=exempt){
+            tax =0;
+           
+        }
+        else{
+            tax-=exempt;
+        }
+       
+    }
+    cout<<"Name: "<<name_account<<endl;
+    cout<<"Account Number: "<<account_number<<endl;
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+    cout<<"Your total tax is: $ "<<tax<<endl;
+    cout<<"Single Property Tax Exemption: $"<<exempt<<endl;
+   
+   
+   
+    return 0;
+}

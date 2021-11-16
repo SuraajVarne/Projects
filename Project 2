@@ -1,0 +1,57 @@
+#include <iostream> 
+using namespace std; 
+
+int const number_tests = 5;
+
+struct Student
+{
+    string name; 
+    int tests_taken;
+    
+    double average_scores; 
+};
+
+int main()
+{
+    cout << "\n\t Computer Science and Engineering";
+    cout << "\n\t CSCE 1030- Computer Science I";
+    cout << "\n\t Suraj Varne Sheela, ss2303, ss2303@my.unt.edu ";
+    cout << endl;
+    
+    enum datatype{Add = 1,Remove = 2, Display = 3, Search = 4, Results = 5, Quit = 6};
+    
+    cout << "\n\t 1.Add  ";
+    cout << "\n\t 2.Remove  ";
+    cout << "\n\t 3.Display  ";
+    cout << "\n\t 4.Search  ";
+    cout << "\n\t 5.Results  ";
+    cout << "\n\t 6 Quit";
+    
+    int choice;
+    
+    cout << "\n\t Make a menu choice: ";
+    cin >> choice;
+    
+    switch(datatype)
+    {
+        case 1:
+        add_student();
+        break;
+        
+        case 2:
+        int student_id;
+        cout << "\n\t Enter the student ID of the  student to remove. ";
+        cin >> remove_student(student_id);
+        break;
+        
+        case 3: 
+        display();
+        break; 
+        
+        
+        
+        
+    }
+    
+    
+}

@@ -41,6 +41,38 @@ void add_student()
     
 }
 
+void remove_student(int IDofStudent)
+{
+    getNumber();
+    
+    student *studentsize = new int [3];
+    ifstream file;
+    file.open("student.dat");
+    
+    string firstname, lastname;
+    int studentid, testtaken,testscores;
+    
+    while(file >> firstname >> lastname >> studentid >> testtaken >> testscores)
+    {
+        if(studentid == studentid)
+        {
+            fstream file1;
+            file1.open("student.dat");
+        }
+        else
+        {
+            cout << "\n\t student does not exist";
+        }
+        file.close("student.dat")
+        
+    }
+}
+
+void display()
+{
+    file1.open("student.dat")
+    
+}
 
 int main()
 {
